@@ -1,17 +1,39 @@
 import 'package:flutter/material.dart';
 
 
-class Landing extends StatefulWidget {
-  const Landing({super.key});
+class LandingPage extends StatefulWidget {
+  const LandingPage({super.key});
 
 
   @override
-  State<Landing> createState() => _LandingState();
+  State<LandingPage> createState() => _LandingPageState();
 }
 
-class _LandingState extends State<Landing> {
+class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Stack(
+        children: [
+          Container(
+            child: AppBar(
+              flexibleSpace: Positioned.fill(
+                  child: Container(
+                    width: 200,
+                    height: 200,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.blue, Colors.green], // Warna gradien
+                        begin: Alignment.topLeft, // Posisi awal gradien
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                  )
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
