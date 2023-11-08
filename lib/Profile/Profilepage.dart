@@ -24,7 +24,7 @@ class Profile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Pandu Sabda Nabsi',
+                  'Pandu Sabda Nabi',
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
