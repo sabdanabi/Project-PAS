@@ -63,6 +63,15 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
+  assets:
+    - assets_img/logo.png
+    - assets_img/modell.png
+    - assets_img/modelcl2.jpg
+    - assets_img/clmodel.jpg
+    - assets_img/clmodelman.jpg
+    - assets_img/clmodel2.jpeg
+    - assets_img/clmodel3.jpg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
