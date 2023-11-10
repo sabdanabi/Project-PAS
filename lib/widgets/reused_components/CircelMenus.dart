@@ -13,7 +13,7 @@ class CircelMenus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 28.0,top: 20.0),
+      padding: const EdgeInsets.only(left: 20.0,top: 20.0,right: 8.0),
       child: Column(
         children: [
           Padding(
@@ -27,7 +27,7 @@ class CircelMenus extends StatelessWidget {
                   border: Border.all(color: Color(0xFFBAD7FE),width: 3)
                   ),
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(17.0), // Ganti sesuai kebutuhanmu
+                borderRadius: BorderRadius.circular(17.0),
                 child:  Image.asset(imgName,fit: BoxFit.cover,),
               ),
             )
