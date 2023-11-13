@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_pas/Login&RegisterUI/Login/LoginPage/Login.dart';
 import 'package:project_pas/Login&RegisterUI/Register/RgisterPage/RegisterPage.dart';
 import 'package:project_pas/Profile/Profilepage.dart';
-import 'package:project_pas/Splashscreen/SplashPage/Splash.dart';
 
 
 
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Profile(),
+      home: LoginPage(),
     );
   }
 }
