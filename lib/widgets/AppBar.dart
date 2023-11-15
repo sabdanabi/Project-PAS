@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_pas/widgets/reused_components/AdvertisingCard.dart';
 
+import 'AutoScrolListView.dart';
 import 'AutoScrollListView.dart';
 
 
@@ -45,7 +46,7 @@ class FillAppBar extends StatelessWidget {
           ),
         ),
 
-        AutoScrollListView()
+        AutoScrollCarousel()
 
       ],
     );
