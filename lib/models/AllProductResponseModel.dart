@@ -1,33 +1,30 @@
 // To parse this JSON data, do
 //
-//     final allProductResponseModel = allProductResponseModelFromJson(jsonString);
+//     final ecommercelistmodel = ecommercelistmodelFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
-List<AllProductResponseModel> allProductResponseModelFromJson(String str) => List<AllProductResponseModel>.from(json.decode(str).map((x) => AllProductResponseModel.fromJson(x)));
+List<AllProductResponseModel>  allProductResponseModelFromJson(String str) => List<AllProductResponseModel>.from(json.decode(str).map((x) => AllProductResponseModel.fromJson(x)));
 
 String allProductResponseModelToJson(List<AllProductResponseModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-
-
-class AllProductResponseModel {
+class AllProductResponseModel  {
   int id;
   String title;
   double price;
   String description;
-  Category category;
+  Category? category;
   String image;
-  Rating rating;
+  Rating? rating;
 
   AllProductResponseModel({
     required this.id,
     required this.title,
     required this.price,
     required this.description,
-    required this.category,
+     this.category,
     required this.image,
-    required this.rating,
+     this.rating,
   });
 
   factory AllProductResponseModel.fromJson(Map<String, dynamic> json) => AllProductResponseModel(
@@ -47,7 +44,7 @@ class AllProductResponseModel {
     "description": description,
     "category": categoryValues.reverse[category],
     "image": image,
-    "rating": rating.toJson(),
+    "rating": rating?.toJson(),
   };
 }
 
