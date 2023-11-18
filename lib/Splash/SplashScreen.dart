@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:project_pas/Payment/Paymentscreen/Payment_Method.dart';
 
 class Splash extends StatefulWidget {
-  const Splash({super.key});
+  const Splash({Key? key}) : super(key: key);
 
   @override
-  State<Splash> createState() => _SplashState();
+  _SplashState createState() => _SplashState();
 }
 
 class _SplashState extends State<Splash> {
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Payment()),
+      );
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.sizeOf(context);
-    return Container(
-      width: size.width,
-      height: size.height,
-      color: Colors.white,
-      child: Center(
-        child: Image.asset('')
+    Size size = MediaQuery.of(context).size;
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Image.asset(
+          'asset/shappe.png',
+          width: size.width - 280,
+        ),
       ),
     );
   }
 }
+

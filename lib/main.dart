@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_pas/Payment/Paymentscreen/Payment_Method.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_pas/Splash/Homescreen.dart';
+import 'package:project_pas/Splash/SplashScreen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
 
       ),
-      home: homescreen(),
+      home: Splash(),
     );
   }
 }
