@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../models/AllProductResponseModel.dart';
 import 'package:http/http.dart' as http;
 
 class ControllerAllListProduct extends GetxController {
   RxList<AllProductResponseModel> listmodelCtr = <AllProductResponseModel>[].obs;
   RxList<AllProductResponseModel> allProductResponseModelCtr = <AllProductResponseModel>[].obs;
+  Rx isLoading = true.obs;
 
   @override
   void onInit(){
@@ -19,13 +21,13 @@ class ControllerAllListProduct extends GetxController {
       await http.get(Uri.parse("https://fakestoreapi.com/products"));
 
       if(response.statusCode == 200){
-        //mengisi data allProductResponseModelCtr dengan hasil json dari model
         allProductResponseModelCtr.value = allProductResponseModelFromJson(response.body);
         listmodelCtr.assignAll(allProductResponseModelCtr);
         print("Product ${allProductResponseModelCtr.value.length}");
       }else{
         print("Status code : " + response.statusCode.toString());
       }
+      isLoading.value = false;
     }catch(e){
       print("error : " +e.toString());
     }

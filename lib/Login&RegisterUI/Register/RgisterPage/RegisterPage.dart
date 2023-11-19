@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:project_pas/Profile/Profilepage.dart';
+import 'package:project_pas/controllers/RegisterController.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Login/ReusedLogin/MyButtinText.dart';
 import '../../Login/ReusedLogin/MyLable.dart';
 import '../../Login/ReusedLogin/MyTextField.dart';
-import '../../Login/ReusedLogin/SquareTitle.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
 
-  // text editing controllers
-  final FirstNameController = TextEditingController();
-  final LastNameController = TextEditingController();
-  final EmailController = TextEditingController();
-  final SetPasswordController = TextEditingController();
-  final ConfirmPasswordController = TextEditingController();
+  RegisterPageController controller = Get.put(RegisterPageController());
 
   // sign user in method
   void signUserIn() {}
@@ -30,42 +28,37 @@ class RegisterPage extends StatelessWidget {
               MyLabel1(text: 'Register your account\n'),
               Column(
                 children: [
-                  MyLabel(text: 'First Name'),
+                  MyLabel(text: 'Username'),
                   MyTextField(
-                    controller: FirstNameController,
-                    hintText: 'Enter your first name',
-                    obscureText: false,
-                  ),
-                  const SizedBox(height: 10),
-                  MyLabel(text: 'Last Name'),
-                  MyTextField(
-                    controller: LastNameController,
-                    hintText: 'Enter your Last name',
+                    controller: controller.usernameTextEditingController,
+                    hintText: 'Enter your Username',
                     obscureText: false,
                   ),
                   const SizedBox(height: 10),
                   MyLabel(text: 'Email'),
                   MyTextField(
-                    controller: EmailController,
+                    controller: controller.emailTextEditingController,
                     hintText: 'Enter your E-mail',
                     obscureText: false,
                   ),
                   const SizedBox(height: 10),
                   MyLabel(text: 'Set a Password'),
                   MyTextFieldPassword(
-                      controller: SetPasswordController,
+                      controller: controller.passwordTextEditingController,
                       hintText: 'Enter Your Password'),
                   const SizedBox(height: 10),
-                  MyLabel(text: 'Confirm a Password'),
-                  MyTextFieldPassword(
-                      controller: ConfirmPasswordController,
-                      hintText: 'Confirm Your Password'),
                 ],
               ),
               const SizedBox(height: 40),
               MyButton(
-                onTap: signUserIn,
+                emailTextEditing:
+                controller.emailTextEditingController,
+                passwordTextEditing:
+                controller.passwordTextEditingController,
+                usernameTextEditing:
+                controller.usernameTextEditingController,
               ),
+
               const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -75,11 +68,16 @@ class RegisterPage extends StatelessWidget {
                     style: TextStyle(color: Colors.grey[700]),
                   ),
                   const SizedBox(width: 4),
-                  const Text(
-                    'Sign In',
-                    style: TextStyle(
-                      color: Colors.blue,
-                      fontWeight: FontWeight.bold,
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed("/login");
+                    },
+                    child: const Text(
+                      'Sign In',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ],

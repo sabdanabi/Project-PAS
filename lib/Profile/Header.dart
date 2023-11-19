@@ -46,8 +46,13 @@ class _HeaderState extends State<Header> {
                   radius: 75,
                   backgroundColor: Colors.grey[150],
                   child: ClipRRect(
-                    child: Image.asset('Images/Object1.png'),
-                  ),
+                    borderRadius: BorderRadius.circular(45.0), // Sesuaikan dengan sudut yang diinginkan
+                    child: Image.asset(
+                      'assets_img/pp.jpg',
+                      height: 100.0,
+                      fit: BoxFit.cover,
+                    ),
+                  )
                 ),
               ),
             ),

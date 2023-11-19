@@ -1,14 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../controllers/LoginController.dart';
 
 class MyButtonLogin extends StatelessWidget {
-  final Function()? onTap;
 
-  const MyButtonLogin({super.key, required this.onTap});
+  const MyButtonLogin({super.key,required this.usernameTextEditing,
+    required this.passwordTextEditing,});
+  final TextEditingController usernameTextEditing, passwordTextEditing;
 
   @override
   Widget build(BuildContext context) {
+    LoginPageController controller = Get.put(LoginPageController());
+
     return GestureDetector(
-      onTap: onTap,
+      onTap: () async {
+        if(!(usernameTextEditing.text == "" && passwordTextEditing.text == "")){
+          await controller.login(
+              usernameTextEditing.text, passwordTextEditing.text);
+          Get.offNamed('/landingPage');
+        } else {
+          controller.message.value = "Please fill username and password";
+          controller.successfulLogin.value = false;
+        }
+      },
       child: Container(
         padding: const EdgeInsets.all(13),
         margin: const EdgeInsets.symmetric(horizontal: 25),
@@ -18,7 +33,7 @@ class MyButtonLogin extends StatelessWidget {
         ),
         child: const Center(
           child: Text(
-            "Reset Password",
+            "Login",
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,

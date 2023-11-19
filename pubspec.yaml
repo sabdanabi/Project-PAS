@@ -42,6 +42,8 @@ dependencies:
   flutter_svg:
   google_fonts:
   flutter_native_splash:
+  shared_preferences:
+  introduction_screen:
 
 dev_dependencies:
   flutter_test:
@@ -97,6 +99,7 @@ flutter:
     - assets_img/shappe.png
     - assets_img/appel.png
     - assets_img/google.png
+    - assets_img/pp.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

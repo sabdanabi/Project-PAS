@@ -108,25 +108,6 @@ class DetailProduct extends StatelessWidget {
               Text(product.rating?.rate.toString() ?? "N/A",style: TextStyle(fontWeight: FontWeight.w500),)
             ],
           ),
-
-          // Row(
-          //   children: [
-          //     Padding(
-          //       padding: EdgeInsets.only(left: 25.0,top: 5.0),
-          //       child: Text("Rate:",style: TextStyle(color: Colors.black54,)),
-          //     ),
-          //     Padding(
-          //       padding: EdgeInsets.symmetric(horizontal: 5.0),
-          //       child: Icon(
-          //         Icons.star,
-          //         color: Colors.orangeAccent,
-          //         size: 20.0,
-          //       ),
-          //     ),
-          //
-          //   ],
-          // ),
-
           Padding(
              padding: const EdgeInsets.only(left: 25.0,top: 5.0),
              child: Align(

@@ -2,23 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_pas/Login&RegisterUI/Login/ReusedLogin/MyLable.dart';
 import 'package:project_pas/Login&RegisterUI/Register/RgisterPage/RegisterPage.dart';
-
+import 'package:project_pas/controllers/LoginController.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../Register/ReusedRgister/MyTextButton.dart';
 import '../ReusedLogin/MyButtinText.dart';
 import '../ReusedLogin/MyTextField.dart';
 import '../ReusedLogin/SquareTitle.dart';
 
 class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
-
-  // text editing controllers
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
-
-  // sign user in method
-  void signUserIn() {}
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    LoginPageController controller = Get.put(LoginPageController());
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -36,28 +32,25 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 15),
 
-              MyLabel2(
-                  text:
-                      "To Sign In, you can use an existing \n account from the site Shappe\n"),
+              MyLabel2(text: "To Sign In, you can use an existing \n account from the site Shappe\n"),
 
               const SizedBox(height: 15),
 
               Column(
                 children: [
-                  MyLabel(text: 'Ussername'),
+                  MyLabel(text: 'Email'),
                   MyTextField(
-                    controller: usernameController,
-                    hintText: 'Ussername',
+                    controller: controller.emailTextEditingController,
+                    hintText: 'Enter Email',
                     obscureText: false,
                   ),
                   const SizedBox(height: 10),
                   MyLabel(text: 'Password'),
-                  MyTextFieldPassword(
-                      controller: passwordController, hintText: 'Password')
+                  MyTextFieldPassword(controller: controller.passwordTextEditingController, hintText: 'Enter Password')
                 ],
               ),
 
-                const SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               // forgot password?
               Padding(
@@ -75,8 +68,11 @@ class LoginPage extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              MyButton(
-                onTap: signUserIn,
+              MyButtonLogin(
+                usernameTextEditing:
+                controller.emailTextEditingController,
+                passwordTextEditing:
+                controller.passwordTextEditingController,
               ),
 
               const SizedBox(height: 30),
@@ -151,7 +147,8 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
-    );
+    )
+    ;
   }
 }
 

@@ -1,14 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../controllers/RegisterController.dart';
 
 class MyButton extends StatelessWidget {
-  final Function()? onTap;
+  final TextEditingController usernameTextEditing, emailTextEditing, passwordTextEditing;
 
-  const MyButton({super.key, required this.onTap});
+  const MyButton({super.key,  required this.usernameTextEditing, required this.emailTextEditing, required this.passwordTextEditing});
 
   @override
   Widget build(BuildContext context) {
+    RegisterPageController controller = Get.put(RegisterPageController());
     return GestureDetector(
-      onTap: onTap,
+      onTap:  () async {
+        if(!(emailTextEditing.text == "" && passwordTextEditing.text == "")){
+          await controller.signin(usernameTextEditing.text, emailTextEditing.text, passwordTextEditing.text);
+          Get.offNamed('/login');
+        } else if(controller.successfulRegister.value) {
+          controller.message.value = "Please fill username and password";
+          controller.successfulRegister.value = false;
+        }
+      },
       child: Container(
         padding: const EdgeInsets.all(13),
         margin: const EdgeInsets.symmetric(horizontal: 25),
