@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
 
               // logo
               Image.asset(
-                'Images/Logo.png',
+                'assets_img/shappe.png',
                 width: MediaQuery.of(context).size.width * 1 / 5,
               ),
 
@@ -113,9 +113,9 @@ class LoginPage extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
-                  SquareTile(imagePath: 'Images/apple.png'),
+                  SquareTile(imagePath: 'assets_img/appel.png'),
                   SizedBox(width: 25),
-                  SquareTile(imagePath: 'Images/google.png')
+                  SquareTile(imagePath: 'assets_img/google.png')
                 ],
               ),
 
