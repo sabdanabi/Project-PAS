@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project_pas/Payment/Paymentscreen/Header.dart';
+import 'package:get/get.dart';
 import 'package:project_pas/Payment/Paymentscreen/Mycard.dart';
 import 'package:project_pas/Payment/Reus/MyTextField.dart';
-import 'package:project_pas/screens/LandingPage.dart';
 
 class Payment extends StatefulWidget {
   Payment({Key? key}) : super(key: key);
@@ -44,7 +43,7 @@ class _PaymentState extends State<Payment> {
                     controller: widget.cardNumberController,
                     hintText: 'Your Card Number',
                     obscureText: false,
-                    imagePath: 'asset/logobank.png',
+                    imagePath: 'assets_img/logobank.png',
                   ),
                   SizedBox(height: 10),
                   Column(
@@ -97,15 +96,15 @@ class _PaymentState extends State<Payment> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Imagee(image: 'asset/Bri.jpg'),
-                          Imagee(image: 'asset/BNI.jpg'),
-                          Imagee(image: 'asset/Mandiri.png'),
-                          Imagee(image: 'asset/Mc.png'),
-                          Imagee(image: 'asset/Danamon.png'),
+                          Imagee(image: 'assets_img/Bri.jpg'),
+                          Imagee(image: 'assets_img/BNI.jpg'),
+                          Imagee(image: 'assets_img/Mandiri.png'),
+                          Imagee(image: 'assets_img/MC.png'),
+                          Imagee(image: 'assets_img/Danamon.png'),
                         ],
                       ),
-                      // SizedBox(height: 30),
-                      // MyButton(onTap: () => landing()),
+                      SizedBox(height: 30),
+                      MyButton(onTap: () => Get.toNamed('/landingPage')),
                     ],
                   ),],
               ),

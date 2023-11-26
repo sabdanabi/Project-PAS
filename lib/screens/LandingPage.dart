@@ -7,12 +7,13 @@ import '../Profile/Profilepage.dart';
 import '../controllers/ControllerAllListProduct.dart';
 import '../widgets/AppBar.dart';
 import '../widgets/BackgroundAppBar.dart';
+import '../widgets/bottomNavbar.dart';
 
 class LandingPage extends StatelessWidget {
   LandingPage({super.key});
 
   final productController = Get.put(ControllerAllListProduct());
-  int _selectedIndex = 0;
+  final int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -66,36 +67,8 @@ class LandingPage extends StatelessWidget {
         ],
       )
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-      ),
+      bottomNavigationBar: bottomNavbar(context, currentIndex),
     );
-  }
-
-  void _onItemTapped(int index) {
-    switch (index) {
-      case 0:
-        print('Home tab tapped');
-        Get.offNamed('/landingPage');
-        break;
-      case 1:
-        print('Profile tab tapped');
-        Get.offNamed('/profil');
-        break;
-      default:
-        print('Invalid tab tapped');
-    }
   }
 
 }

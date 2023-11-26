@@ -81,7 +81,7 @@ class MyCard extends StatelessWidget {
               Container(
                 width: 55,
                 height: 55,
-                child: Image.asset('asset/Mc.png'),
+                child: Image.asset('assets_img/MC.png'),
               ),
             ],
           )

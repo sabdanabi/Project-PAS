@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controllers/ControllerAllListProduct.dart';
 import '../controllers/ControllerDetailProduct.dart';
+import '../controllers/cart_controller.dart';
 import '../models/AllProductResponseModel.dart';
 
 
@@ -12,6 +13,7 @@ class DetailProduct extends StatelessWidget {
   final ControllerDetailProduct controller = Get.put(ControllerDetailProduct());
   AllProductResponseModel product;
   final ecommercecontroller = Get.put(ControllerAllListProduct());
+  final CartController controler = Get.put(CartController());
   final Category? category;
 
   @override
@@ -88,10 +90,6 @@ class DetailProduct extends StatelessWidget {
             ],
           ),
 
-          // (Category.MEN_S_CLOTHING == true || Category.WOMEN_S_CLOTHING == true)
-          //     ? showsize(ecommercecontroller)
-          //     : Container(),
-
           Row(
             children: [
               Padding(
@@ -128,7 +126,9 @@ class DetailProduct extends StatelessWidget {
                  height: MediaQuery.of(context).size.height * 0.06,
                  width: MediaQuery.of(context).size.width * 0.85,
                  child: ElevatedButton(
-                     onPressed: () {}, child: Text("Add to cart",style: TextStyle(color: Colors.white),),
+                     onPressed: () {
+                       controler.addCard(context, product);
+                     }, child: Text("Add to cart",style: TextStyle(color: Colors.white),),
                      style: ElevatedButton.styleFrom(
                        primary: Color(0xFF6F4EC7),
                    shape: RoundedRectangleBorder(

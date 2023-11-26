@@ -4,15 +4,11 @@ import 'package:project_pas/controllers/ControllerAllListProduct.dart';
 import 'package:project_pas/models/AllProductResponseModel.dart';
 import 'package:project_pas/widgets/reused_components/CategoryCart.dart';
 
-class ListviewMenusCategories extends StatefulWidget {
-  const ListviewMenusCategories({super.key});
+class ListviewMenusCategories extends StatelessWidget {
+  ListviewMenusCategories({super.key});
 
-  @override
-  State<ListviewMenusCategories> createState() => _ListviewMenusCategoriesState();
-}
-
-class _ListviewMenusCategoriesState extends State<ListviewMenusCategories> {
   final productController = Get.put(ControllerAllListProduct());
+
   @override
   Widget build(BuildContext context) {
     return Padding(

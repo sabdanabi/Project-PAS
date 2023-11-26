@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:project_pas/controllers/cart_controller.dart';
 
 import '../../models/AllProductResponseModel.dart';
 
@@ -12,6 +14,7 @@ class CartProduct extends StatelessWidget {
   AllProductResponseModel? product;
 
   CartProduct({required this.imageUrl,required this.title,required this.price,required this.produk});
+  final CartController controller = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +81,9 @@ class CartProduct extends StatelessWidget {
                           height: MediaQuery.of(context).size.height * 0.042,
                           width: MediaQuery.of(context).size.width * 0.5,
                           child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                controller.addCard(context, produk);
+                              },
                               child:
                               Icon(
                                 Icons.shopping_cart,

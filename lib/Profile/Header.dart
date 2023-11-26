@@ -18,35 +18,18 @@ class _HeaderState extends State<Header> {
       children: [
         Container(
           height: MediaQuery.of(context).size.height/5,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(35.0),
-                  bottomRight: Radius.circular(35.0)
-              ),
-              color: Colors.blue,
-              gradient: LinearGradient(
-                  colors: [
-                    Colors.blueAccent,
-                    Colors.blueAccent
-                  ],
-                  begin: FractionalOffset(0.0,0.0),
-                  end: FractionalOffset(0.0,0.0),
-                  stops: [0.0,1.0],
-                  tileMode: TileMode.clamp
-              )
-          ),
         ),
         Positioned(
             bottom: -50.0,
             child: InkWell(
               child: CircleAvatar(
-                radius: 50,
-                backgroundColor: Colors.blueAccent,
+                radius: 70,
+                backgroundColor: Colors.white,
                 child: CircleAvatar(
-                  radius: 75,
-                  backgroundColor: Colors.grey[150],
+                  radius: 70,
+                  backgroundColor: Colors.white,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(45.0), // Sesuaikan dengan sudut yang diinginkan
+                    borderRadius: BorderRadius.circular(50.0),
                     child: Image.asset(
                       'assets_img/pp.jpg',
                       height: 100.0,

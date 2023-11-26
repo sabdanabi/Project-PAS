@@ -7,6 +7,7 @@ class BackgroundAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: AppBar(
+        automaticallyImplyLeading: false,
         flexibleSpace: Positioned.fill(
             child: Container(
               height: MediaQuery.of(context).size.height * 0.25,

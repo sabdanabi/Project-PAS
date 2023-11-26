@@ -1,10 +1,13 @@
 import 'package:get/get.dart';
 import '../Login&RegisterUI/Login/LoginPage/Login.dart';
 import '../Login&RegisterUI/Register/RgisterPage/RegisterPage.dart';
+import '../Payment/Paymentscreen/Payment_Method.dart';
 import '../Profile/Profilepage.dart';
+import '../screens/CartPage.dart';
 import '../screens/SplashScreen.dart';
 import '../screens/LandingPage.dart';
 import '../screens/onboarding/Onboarding.dart';
+import '../widgets/CardCart.dart';
 
 List <GetPage> routes = [
   GetPage(name: '/splash', page: () => Splash()),
@@ -13,4 +16,6 @@ List <GetPage> routes = [
   GetPage(name: '/register', page: () => RegisterPage()),
   GetPage(name: '/profil', page: () => Profile()),
   GetPage(name: '/onboarding', page: () => Onboarding()),
+  GetPage(name: '/cartPage', page: () => CartPage()),
+  GetPage(name: '/payment', page: () => Payment()),
 ];

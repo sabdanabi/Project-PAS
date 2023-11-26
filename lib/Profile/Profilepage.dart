@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_pas/Profile/Header.dart';
 import '../controllers/ControllerProfile.dart';
-import '../screens/LandingPage.dart';
-import 'InfoCard.dart';
+import '../widgets/bottomNavbar.dart';
+import '../widgets/reused_components/ProfilMenus.dart';
 
 // our data
 const url = "meshivanshsingh.me";
@@ -13,15 +13,21 @@ const location = "Lucknow, India";
 
 class Profile extends StatelessWidget {
   ProfilePageController controller = Get.put(ProfilePageController());
-  int _selectedIndex = 1; // Set indeks sesuai dengan posisi "Profile" di Bottom Navigation Bar
+  final int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+          automaticallyImplyLeading: false,
+        title: Center(child: Text("Profile",style:TextStyle(fontSize: 18,fontFamily: 'productsans_normal',fontWeight: FontWeight.bold),))
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            SizedBox(height: 50,),
+            // SizedBox(height: 10,),
             Header(),
             SizedBox(
               height: 60,
@@ -38,55 +44,33 @@ class Profile extends StatelessWidget {
                 ))
               ],
             ),
+
             SizedBox(height: 20),
-            Card2(
-              text: '(+62 82340760761)',
-              icon: Icons.phone,
-            ),
-            Card2(
-              text: 'Rafihaiqal@gmail.com',
-              icon: Icons.email,
-            ),
-            Card2(
-              text: 'rafi19',
-              icon: Icons.facebook_sharp,
-            ),
-            Card2(
-              text: 'rafihaiqal90',
-              icon: Icons.telegram,
-            ),
+            ProfilMenus(title: "Setting",icon: Icons.settings,),
+            ProfilMenus(title: "My Account",icon: Icons.person,),
+            ProfilMenus(title: "Help Center",icon: Icons.help,),
+            ProfilMenus(title: "Information",icon: Icons.info,),
+         ProfilMenus2(title:"Logout", icon: Icons.logout_rounded),
+
+        // Row(
+        //     children: [
+        //       Padding(
+        //         padding: const EdgeInsets.only(left: 20.0),
+        //         child: Icon(Icons.logout_rounded),
+        //       ),
+        //       Padding(
+        //         padding: const EdgeInsets.only(left: 20.0),
+        //         child: Text("Logout",style: TextStyle(fontSize: 15,color: Colors.red),),
+        //       ),
+        //       Spacer(),
+        //       Icon(Icons.arrow_forward_ios_rounded)
+        //     ]
+        // )
+
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-      ),
+      bottomNavigationBar: bottomNavbar(context, currentIndex),
     );
-  }
-
-  void _onItemTapped(int index) {
-    switch (index) {
-      case 0:
-        print('Home tab tapped');
-        Get.offNamed('/landingPage');
-        break;
-      case 1:
-        print('Profile tab tapped');
-        Get.offNamed("/profil");
-        break;
-      default:
-        print('Invalid tab tapped');
-    }
   }
 }
