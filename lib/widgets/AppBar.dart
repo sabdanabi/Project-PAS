@@ -29,7 +29,8 @@ class FillAppBar extends StatelessWidget {
                     // Jarak antara gambar dan teks
                     const Text(
                       'Shopper',
-                      style: TextStyle(fontSize: 16.0, color: Colors.white),
+                      style: TextStyle(fontSize: 16.0, color: Colors.white,fontFamily: 'productsans_bold',
+                      ),
                     ),
                   ],
                 ),

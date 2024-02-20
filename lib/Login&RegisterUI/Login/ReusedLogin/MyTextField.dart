@@ -38,6 +38,7 @@ class MyTextField extends StatelessWidget {
             hintText: hintText,
             hintStyle: TextStyle(
               color: Colors.grey[500],
+              fontFamily: 'productsans_bold',
               fontWeight: FontWeight.w300,
               fontSize: 14,
             ),
@@ -92,6 +93,7 @@ class _MyTextFieldPasswordState extends State<MyTextFieldPassword> {
             hintStyle: TextStyle(
               color: Colors.grey[500],
               fontWeight: FontWeight.w300,
+              fontFamily: 'productsans_bold',
               fontSize: 14,
             ),
             suffixIcon: InkWell(

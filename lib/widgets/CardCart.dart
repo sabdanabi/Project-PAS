@@ -49,7 +49,8 @@ class CardCart extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Rate:",style: TextStyle(color: Colors.black54,fontSize: 12.0)),
+                      Text("Rate:",style: TextStyle(color: Colors.black54,fontSize: 12.0,fontFamily: 'productsans_bold',
+                      )),
                       for (int i = 0; i < (item.rating?.rate.toInt() ?? 0); i++)
                         Icon(
                             Icons.star,
@@ -57,7 +58,8 @@ class CardCart extends StatelessWidget {
                             size: 15.0
                         ),
                       SizedBox(width: 5),
-                      Text(item.rating?.rate.toString() ?? "N/A",style: TextStyle(fontWeight: FontWeight.w500),)
+                      Text(item.rating?.rate.toString() ?? "N/A",style: TextStyle(fontWeight: FontWeight.w500,fontFamily: 'productsans_bold',
+                      ),)
                     ],
                   ),
                   Text('\$ ${item.price.toString()}')

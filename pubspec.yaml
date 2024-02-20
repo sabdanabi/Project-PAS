@@ -45,6 +45,7 @@ dependencies:
   shared_preferences:
   introduction_screen:
   google_nav_bar:
+  sqflite:
 
 dev_dependencies:
   flutter_test:

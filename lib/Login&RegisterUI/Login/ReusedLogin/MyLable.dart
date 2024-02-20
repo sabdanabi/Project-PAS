@@ -18,6 +18,7 @@ class MyLabel extends StatelessWidget {
             color: Colors.grey[500],
             fontSize: 12,
             fontWeight: FontWeight.w500,
+            fontFamily: 'productsans_bold',
           ),
         ),
       ],
@@ -43,6 +44,7 @@ class MyLabel1 extends StatelessWidget {
             color: Colors.grey[800],
             fontSize: 18,
             fontWeight: FontWeight.bold,
+            fontFamily: 'productsans_bold',
           ),
           textAlign: TextAlign.center,
         ),
@@ -68,6 +70,7 @@ class MyLabel2 extends StatelessWidget {
           style:
           TextStyle(
             color: Colors.grey[500],
+            fontFamily: 'productsans_bold',
             fontSize: 16,
           ),
           textAlign: TextAlign.center,

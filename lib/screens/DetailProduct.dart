@@ -85,7 +85,7 @@ class DetailProduct extends StatelessWidget {
                 ),
                 child: Align(
                   alignment: Alignment.center,
-                    child: Text("\$${product.price.toString()}",style: TextStyle(fontWeight: FontWeight.w500),)),
+                    child: Text("\$${product.price.toString()}",style: TextStyle(fontWeight: FontWeight.w500,fontFamily: 'productsans_bold',),)),
               )
             ],
           ),
@@ -94,7 +94,7 @@ class DetailProduct extends StatelessWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only(left: 25.0,top: 5.0),
-                child: Text("Rate:",style: TextStyle(color: Colors.black54,)),
+                child: Text("Rate:",style: TextStyle(color: Colors.black54,fontFamily: 'productsans_bold',)),
               ),
               for (int i = 0; i < (product.rating?.rate.toInt() ?? 0); i++)
                 Icon(
@@ -103,19 +103,19 @@ class DetailProduct extends StatelessWidget {
                     size: 20.0
                 ),
               SizedBox(width: 5),
-              Text(product.rating?.rate.toString() ?? "N/A",style: TextStyle(fontWeight: FontWeight.w500),)
+              Text(product.rating?.rate.toString() ?? "N/A",style: TextStyle(fontWeight: FontWeight.w500,fontFamily: 'productsans_bold',),)
             ],
           ),
           Padding(
              padding: const EdgeInsets.only(left: 25.0,top: 5.0),
              child: Align(
                alignment: Alignment.centerLeft ,
-                 child: Text("Description:",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54),)),
+                 child: Text("Description:",style: TextStyle(fontWeight: FontWeight.w500,color: Colors.black54,fontFamily: 'productsans_bold',),)),
            ),
           Padding(
              padding: const EdgeInsets.only(left: 28.0,top: 5.0),
              child: Text(product.description,
-               style: TextStyle(fontSize: 13.0,color: Colors.black45),
+               style: TextStyle(fontSize: 13.0,color: Colors.black45,fontFamily: 'productsans_bold',),
                maxLines: 3,
                overflow: TextOverflow.ellipsis,
              ),
@@ -128,7 +128,7 @@ class DetailProduct extends StatelessWidget {
                  child: ElevatedButton(
                      onPressed: () {
                        controler.addCard(context, product);
-                     }, child: Text("Add to cart",style: TextStyle(color: Colors.white),),
+                     }, child: Text("Add to cart",style: TextStyle(color: Colors.white,fontFamily: 'productsans_bold',),),
                      style: ElevatedButton.styleFrom(
                        primary: Color(0xFF6F4EC7),
                    shape: RoundedRectangleBorder(

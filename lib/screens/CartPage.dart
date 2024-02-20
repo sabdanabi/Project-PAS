@@ -8,9 +8,11 @@ import '../widgets/bottomNavbar.dart';
 class CartPage extends StatelessWidget {
   CartPage({super.key});
   final int currentIndex = 1;
-  final CartController controller = Get.find<CartController>();
+  final CartController controller = Get.put(CartController());
   @override
   Widget build(BuildContext context) {
+
+    print(controller.cartItem.length);
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -61,7 +63,7 @@ class CartPage extends StatelessWidget {
            ],
         ),
       ),
-      bottomNavigationBar: bottomNavbar(context, currentIndex),
+
     );
   }
 }

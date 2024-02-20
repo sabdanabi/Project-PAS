@@ -65,7 +65,7 @@ class RegisterPage extends StatelessWidget {
                 children: [
                   Text(
                     "Already have an account?",
-                    style: TextStyle(color: Colors.grey[700]),
+                    style: TextStyle(color: Colors.grey[700],fontFamily: 'productsans_bold',),
                   ),
                   const SizedBox(width: 4),
                   GestureDetector(
@@ -77,6 +77,7 @@ class RegisterPage extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.blue,
                         fontWeight: FontWeight.bold,
+                        fontFamily: 'productsans_bold',
                       ),
                     ),
                   ),

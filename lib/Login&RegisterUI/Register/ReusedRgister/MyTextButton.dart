@@ -36,6 +36,7 @@ class MyButtonLogin extends StatelessWidget {
             "Login",
             style: TextStyle(
               color: Colors.white,
+              fontFamily: 'productsans_bold',
               fontWeight: FontWeight.bold,
               fontSize: 16,
             ),

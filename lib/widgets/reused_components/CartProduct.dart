@@ -1,7 +1,9 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project_pas/controllers/FavoriteController.dart';
 import 'package:project_pas/controllers/cart_controller.dart';
-
 import '../../models/AllProductResponseModel.dart';
 
 
@@ -15,6 +17,9 @@ class CartProduct extends StatelessWidget {
 
   CartProduct({required this.imageUrl,required this.title,required this.price,required this.produk});
   final CartController controller = Get.put(CartController());
+  final FavoriteController controllerfav = Get.put(FavoriteController());
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +46,22 @@ class CartProduct extends StatelessWidget {
                 color: Colors.white,
                 child: Stack(
                   children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 110.0),
+                      // Tombol favorit
+                      child: IconButton(
+                          icon: Icon(Icons.favorite_border),
+                          onPressed: () async {
+                            Uint8List? imageBytes = await controllerfav.loadImage(imageUrl);
+                            if (imageBytes != null) {
+                              controllerfav.addToFavorites(title ?? "", imageBytes);
+                            } else {
+                              print("Failed to load image");
+                            }
+                          },
+                        ),
+
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(left: 45.0,top: 10.0),
                       child: Image.network(
@@ -60,7 +81,7 @@ class CartProduct extends StatelessWidget {
                           title!,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          style: TextStyle(fontSize: 10.0),
+                          style: TextStyle(fontSize: 10.0,fontFamily: 'productsans_bold',),
                         ),
                       ),
                     ),

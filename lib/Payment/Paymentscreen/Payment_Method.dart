@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:project_pas/Payment/Paymentscreen/Mycard.dart';
 import 'package:project_pas/Payment/Reus/MyTextField.dart';
 
+import '../../controllers/cart_controller.dart';
+
 class Payment extends StatefulWidget {
   Payment({Key? key}) : super(key: key);
 
@@ -11,6 +13,7 @@ class Payment extends StatefulWidget {
   TextEditingController CVV = TextEditingController();
   TextEditingController Namecard = TextEditingController();
 
+
   @override
   _PaymentState createState() => _PaymentState();
 }
@@ -18,6 +21,8 @@ class Payment extends StatefulWidget {
 class _PaymentState extends State<Payment> {
   bool _isChecked = false;
   void paymentMethod() {}
+
+  final CartController controller = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +109,11 @@ class _PaymentState extends State<Payment> {
                         ],
                       ),
                       SizedBox(height: 30),
-                      MyButton(onTap: () => Get.toNamed('/landingPage')),
+                      MyButton(onTap: () {
+                        Get.offNamed('/landingPage');
+                        controller.cartItem.clear();
+                      }
+                      ),
                     ],
                   ),],
               ),

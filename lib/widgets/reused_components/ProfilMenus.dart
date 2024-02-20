@@ -18,7 +18,7 @@ class ProfilMenus extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0),
-              child: Text(title,style: TextStyle(fontSize: 15),),
+              child: Text(title,style: TextStyle(fontSize: 15,fontFamily: 'productsans_bold',),),
             ),
             Spacer(),
             Padding(

@@ -3,12 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:project_pas/routes/PageRoutes.dart';
 
-void main() {
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
   );
   runApp(const MyApp());
 }
+
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,7 +27,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       getPages: routes,
-      initialRoute: '/splash',
+      initialRoute: '/bottomNav',
     );
   }
 }

@@ -24,17 +24,15 @@ Widget bottomNavbar(BuildContext context, int currentIndex){
         case 1:
           Get.toNamed('/cartPage');
           break;
-        case 2:
-          Get.toNamed('/profil');
-          break;
-        default:
-          break;
+        // default:
+        //   Get.toNamed('/profil');
+        //   break;
       }
     },
     tabs: const [
-      GButton(icon: Icons.home_filled, text: "home"),
+      GButton(icon: Icons.home_filled, text: "home",),
       GButton(icon: Icons.shopping_cart, text: "cart"),
-      GButton(icon: Icons.person_2, text: "profile"),
+      // GButton(icon: Icons.person_2, text: "profile"),
     ],
   );
 }

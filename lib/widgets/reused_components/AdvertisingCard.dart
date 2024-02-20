@@ -41,7 +41,7 @@ class AdvertisingCard extends StatelessWidget {
                     padding: EdgeInsets.only(left: 15.0),
                     child: Text(
                       text2,
-                      style: TextStyle(fontSize: 10.0, color: Colors.black45),
+                      style: TextStyle(fontSize: 10.0, color: Colors.black45,fontFamily: 'productsans_bold',),
                     ),
                   ),
                   Padding(
@@ -53,7 +53,7 @@ class AdvertisingCard extends StatelessWidget {
                             onPressed: () {},
                             child: Text(
                               'See more',
-                              style: TextStyle(fontSize: 10.0),
+                              style: TextStyle(fontSize: 10.0,fontFamily: 'productsans_bold'),
                             ),
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(

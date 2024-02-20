@@ -13,7 +13,7 @@ const location = "Lucknow, India";
 
 class Profile extends StatelessWidget {
   ProfilePageController controller = Get.put(ProfilePageController());
-  final int currentIndex = 0;
+  final int currentIndex = 3;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +70,7 @@ class Profile extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: bottomNavbar(context, currentIndex),
+
     );
   }
 }

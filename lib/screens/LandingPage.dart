@@ -3,17 +3,15 @@ import 'package:get/get.dart';
 import 'package:project_pas/screens/DetailProduct.dart';
 import 'package:project_pas/widgets/ListviewMenusCategories.dart';
 import 'package:project_pas/widgets/reused_components/CartProduct.dart';
-import '../Profile/Profilepage.dart';
 import '../controllers/ControllerAllListProduct.dart';
 import '../widgets/AppBar.dart';
 import '../widgets/BackgroundAppBar.dart';
-import '../widgets/bottomNavbar.dart';
 
 class LandingPage extends StatelessWidget {
   LandingPage({super.key});
 
   final productController = Get.put(ControllerAllListProduct());
-  final int currentIndex = 0;
+  // final int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -65,9 +63,9 @@ class LandingPage extends StatelessWidget {
             ],
           ),
         ],
-      )
       ),
-      bottomNavigationBar: bottomNavbar(context, currentIndex),
+      ),
+
     );
   }
 
