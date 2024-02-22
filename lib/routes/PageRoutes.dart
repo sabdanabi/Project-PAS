@@ -8,6 +8,7 @@ import '../screens/Favorite.dart';
 import '../screens/SplashScreen.dart';
 import '../screens/LandingPage.dart';
 import '../screens/onboarding/Onboarding.dart';
+import '../screens/test.dart';
 import '../widgets/BottomNav.dart';
 
 List <GetPage> routes = [

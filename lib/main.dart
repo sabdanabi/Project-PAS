@@ -3,17 +3,17 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:project_pas/routes/PageRoutes.dart';
 
+import 'db/db_helper.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await DatabaseHelper.init();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
   );
   runApp(const MyApp());
 }
-
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

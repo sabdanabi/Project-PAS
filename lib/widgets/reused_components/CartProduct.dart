@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
 import 'package:project_pas/controllers/FavoriteController.dart';
 import 'package:project_pas/controllers/cart_controller.dart';
 import '../../models/AllProductResponseModel.dart';
@@ -10,7 +11,7 @@ import '../../models/AllProductResponseModel.dart';
 class CartProduct extends StatelessWidget {
 
   final String imageUrl;
-  final String? title;
+  final String title;
   final double? price;
   final AllProductResponseModel produk;
   AllProductResponseModel? product;
@@ -48,18 +49,28 @@ class CartProduct extends StatelessWidget {
                   children: [
                     Container(
                       margin: EdgeInsets.only(left: 110.0),
-                      // Tombol favorit
                       child: IconButton(
-                          icon: Icon(Icons.favorite_border),
-                          onPressed: () async {
-                            Uint8List? imageBytes = await controllerfav.loadImage(imageUrl);
-                            if (imageBytes != null) {
-                              controllerfav.addToFavorites(title ?? "", imageBytes);
-                            } else {
-                              print("Failed to load image");
-                            }
-                          },
-                        ),
+                        icon: Obx(() {
+                          final isLiked = controllerfav.isLiked(title).value;
+                          return Icon(
+                            isLiked ? Icons.favorite : Icons.favorite_border,
+                            color: isLiked ? Colors.red : Colors.grey,
+                          );
+                        }),
+                        onPressed: () async {
+                          var img = await get(Uri.parse(imageUrl));
+                          var bytes = img.bodyBytes;
+                          if (controllerfav.isLiked(title).value) {
+                            controllerfav.deleteLike(title);
+                          } else {
+                            controllerfav.createLike(
+                              title: title,
+                              image: bytes,
+                            );
+                          }
+                        },
+                      ),
+
 
                     ),
                     Padding(

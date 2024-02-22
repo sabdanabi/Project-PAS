@@ -5,6 +5,8 @@ import 'package:project_pas/screens/CartPage.dart';
 import 'package:project_pas/screens/Favorite.dart';
 import 'package:project_pas/screens/LandingPage.dart';
 
+import '../screens/test.dart';
+
 class BottomNavigation extends StatefulWidget {
   @override
   _BottomNavigationState createState() => _BottomNavigationState();

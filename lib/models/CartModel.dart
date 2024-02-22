@@ -8,17 +8,20 @@ class Cart {
   Cart({
     required this.title,
     required this.image,
-    required this.id
+    this.id
   });
 
-  factory Cart.fromJson(Map<String, dynamic> json) {
-    // Konversi nilai 'image' dari tipe String ke Uint8List
-    Uint8List imageBytes = Uint8List.fromList(json['image']);
 
-    return Cart(
-        title: json['title'],
-        image: imageBytes,
-        id: json['id']
-    );
+  Cart.fromMap({required map})
+      : id = map['id'],
+        title = map['title'],
+        image = map['image'];
+
+  Map<String, Object?> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'image': image
+    };
   }
 }
